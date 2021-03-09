@@ -1,0 +1,14 @@
+'use strict'
+
+const data = 
+{"elements":[{"objectid":118,"code_insee":35001,"nom":"Acigné"},{"objectid":41,"code_insee":35022,"nom":"Bécherel"},{"objectid":32,"code_insee":35024,"nom":"Betton"},{"objectid":100,"code_insee":35032,"nom":"Bourgbarré"},{"objectid":84,"code_insee":35039,"nom":"Brécé"},{"objectid":124,"code_insee":35047,"nom":"Bruz"},{"objectid":29,"code_insee":35051,"nom":"Cesson-Sévigné"},{"objectid":136,"code_insee":35055,"nom":"Chantepie"},{"objectid":133,"code_insee":35066,"nom":"Chartres-de-Bretagne"},{"objectid":128,"code_insee":35076,"nom":"Chavagne"},{"objectid":43,"code_insee":35079,"nom":"Chevaigné"},{"objectid":140,"code_insee":35080,"nom":"Cintré"},{"objectid":26,"code_insee":35081,"nom":"Clayes"},{"objectid":102,"code_insee":35088,"nom":"Corps-Nuds"},{"objectid":69,"code_insee":35120,"nom":"Gévezé"},{"objectid":49,"code_insee":35058,"nom":"la Chapelle-Chaussée"},{"objectid":30,"code_insee":35059,"nom":"la Chapelle-des-Fougeretz"},{"objectid":27,"code_insee":35065,"nom":"la Chapelle-Thouarault"},{"objectid":116,"code_insee":35139,"nom":"Laillé"},{"objectid":85,"code_insee":35144,"nom":"Langan"},{"objectid":76,"code_insee":35240,"nom":"le Rheu"},{"objectid":129,"code_insee":35351,"nom":"le Verger"},{"objectid":90,"code_insee":35131,"nom":"l'Hermitage"},{"objectid":99,"code_insee":35180,"nom":"Miniac-sous-Bécherel"},{"objectid":20,"code_insee":35189,"nom":"Montgermont"},{"objectid":139,"code_insee":35196,"nom":"Mordelles"},{"objectid":1,"code_insee":35204,"nom":"Nouvoitou"},{"objectid":127,"code_insee":35206,"nom":"Noyal-Châtillon-sur-Seiche"},{"objectid":88,"code_insee":35208,"nom":"Orgères"},{"objectid":19,"code_insee":35210,"nom":"Pacé"},{"objectid":33,"code_insee":35216,"nom":"Parthenay-de-Bretagne"},{"objectid":75,"code_insee":35363,"nom":"Pont-Péan"},{"objectid":28,"code_insee":35238,"nom":"Rennes"},{"objectid":93,"code_insee":35245,"nom":"Romillé"},{"objectid":83,"code_insee":35250,"nom":"Saint-Armel"},{"objectid":18,"code_insee":35266,"nom":"Saint-Erblon"},{"objectid":23,"code_insee":35275,"nom":"Saint-Gilles"},{"objectid":24,"code_insee":35278,"nom":"Saint-Grégoire"},{"objectid":137,"code_insee":35281,"nom":"Saint-Jacques-de-la-Lande"},{"objectid":35,"code_insee":35315,"nom":"Saint-Sulpice-la-Forêt"},{"objectid":22,"code_insee":35334,"nom":"Thorigné-Fouillard"},{"objectid":125,"code_insee":35352,"nom":"Vern-sur-Seiche"},{"objectid":144,"code_insee":35353,"nom":"Vezin-le-Coquet"}],"totalElements":43}
+
+module.exports = async function (fastify, opts) {
+  fastify.get('/', async function (request, reply) {
+    return data
+  })
+  fastify.post('/', async function (request, reply) {
+    request.mockDataInsert(opts.prefix.slice(1), data)
+    return data
+  })
+}
